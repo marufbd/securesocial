@@ -19,6 +19,7 @@ package securesocial.provider;
 import play.libs.OAuth;
 
 import java.util.Date;
+import java.util.HashMap;
 
 /**
  * A class representing a conected user and its authentication details.
@@ -87,4 +88,9 @@ public class SocialUser implements java.io.Serializable {
      * A boolean indicating if the user has validated his email adddress (available when authMethod is USER_PASSWORD)
      */
     public boolean isEmailVerified;
+
+    /**
+     * Additional provider specific scope values
+     */
+    public HashMap<String, String> scopeValues;
 }

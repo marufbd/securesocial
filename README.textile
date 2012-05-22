@@ -1,3 +1,14 @@
+Fork features
+=============================
+We can add additional scopes into application.conf 
+i.e the sample deadbolt integration contains
+securesocial.facebook.scope=email,user_birthday,user_location
+
+And in the SocialUser class an additional HashMap property added named scopeValues
+We can now use user.scopeValues("birthday") to access the value requested by the scope user_birthday
+See [facebook documentation](https://developers.facebook.com/docs/authentication/permissions/) for other scopes
+
+----------------------------------------------------------
 h1. SecureSocial Module for Play! Framework Applications
 
 SecureSocial allows you to add an authentication UI to your app that works with services based on OAuth1, OAuth2, OpenID and OpenID+OAuth hybrid protocols.

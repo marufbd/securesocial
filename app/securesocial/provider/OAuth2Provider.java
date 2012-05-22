@@ -18,11 +18,14 @@ package securesocial.provider;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import play.Logger;
 import play.Play;
 import play.libs.OAuth2;
 import play.mvc.Scope;
 import play.mvc.results.Redirect;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -80,6 +83,7 @@ public abstract class OAuth2Provider extends IdentityProvider
         String []scope = null;
         if ( s != null && s.trim().length() > 0) {
             scope = new String[] {scopeKey, s};
+            //scope = s.split(",");
         }
         return scope;
     }
@@ -151,5 +155,15 @@ public abstract class OAuth2Provider extends IdentityProvider
         SocialUser user =  createUser();
         user.accessToken = accessTokenFromJson == null ? response.accessToken : accessTokenFromJson;
         return user;
+    }
+
+    /**
+     *
+     * @param scopeParam
+     * @return whether this scope is defined for the current authentication provider
+     */
+    protected boolean hasScope(String scopeParam){
+        List<String> scopeList= Arrays.asList(scope[1].split(","));
+        return scopeList.contains(scopeParam.trim());
     }
 }

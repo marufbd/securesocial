@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="securesocial" default="build" basedir=".">
+<project name="securesocialext" default="build" basedir=".">
 
     <target name="check" unless="play.path">
         <fail message="Please specify Play framework path using -Dplay.path=/path/to/framework/home" />
@@ -32,7 +32,7 @@
         <jar destfile="lib/play-securesocial.jar" basedir="tmp/classes">
             <manifest>
                 <section name="Play-module">
-                    <attribute name="Specification-Title" value="securesocial"/>
+                    <attribute name="Specification-Title" value="securesocialext"/>
                 </section>
             </manifest>
         </jar>

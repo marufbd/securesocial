@@ -13,6 +13,15 @@
         Email: ${user.email}<br>
         Authentication method: ${user.authMethod}
 
+        #{if user.scopeValues!=null && user.scopeValues.size()>0}
+        <h2>Additional scope values</h2>
+        <ul>
+        #{list items:user.scopeValues, as:'item'}
+            <li>${item.getKey()} : ${item.getValue()}</li>
+        #{/list}
+        </ul>
+        #{/if}
+
         #{if user.authMethod == securesocial.provider.AuthenticationMethod.OAUTH1 ||
               user.authMethod == securesocial.provider.AuthenticationMethod.OPENID_OAUTH_HYBRID}
         <h2>OAuth 1</h2>

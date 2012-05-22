@@ -32,6 +32,7 @@ import java.util.Collection;
 public class SecureSocial extends Controller {
 
     private static final String USER_COOKIE = "securesocial.user";
+    private static final String USER_DISPLAY_NAME_COOKIE = "securesocial.display_name";
     private static final String NETWORK_COOKIE = "securesocial.network";
     private static final String ORIGINAL_URL = "originalUrl";
     private static final String GET = "GET";
@@ -132,6 +133,7 @@ public class SecureSocial extends Controller {
      */
     private static void setUserId(SocialUser user) {
         session.put(USER_COOKIE, user.id.id);
+        session.put(USER_DISPLAY_NAME_COOKIE, user.displayName);
         session.put(NETWORK_COOKIE, user.id.provider.toString());
     }
 
